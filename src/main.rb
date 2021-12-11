@@ -13,6 +13,23 @@ when "Y"
 when "N" 
     puts "\t\tNo Worries. Don't hesitate to return if you feel differently"
 else
-    puts "\t\tPlease Enter Y/N"
-    exit
+    while ((response != "Y")&&(response != "N")) do
+        puts "\t\tPlease Enter Y/N"
+        response = (gets.chomp).capitalize
+        puts response
+    end
+        if (response == "Y") then
+            puts "\t\tGreat. We will first ask you a few quesitons on your income"
+        else
+            puts "\t\tNo Worries. Don't hesitate to return if you feel differently"
+            exit
+        end    
+    
 end
+
+puts "How much is your personal income?"
+income = (gets.chomp).to_i
+puts "How much is your personal Expense?"
+expense = (gets.chomp).to_i
+puts "Now your budget surplus/deficit is:"
+puts "#{income-expense}"
