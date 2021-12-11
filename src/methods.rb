@@ -1,8 +1,10 @@
+require('rainbow')
+
 def welcome_msg
     puts " "
-    print "\t\tWelcome to BUDGET SOLUTIONS for Professional & Affordable Solutions.\n\n"
-
-    print "\t\tTo let us help you create the very best BEST budget for you,\n\n"
+    print Rainbow("\t\tWelcome to BUDGET SOLUTIONS for Professional & Affordable Solutions").blue.bg(:yellow)
+    puts "\n\n"
+    print "\t\tTo let us help you create the very BEST budget for you,\n\n"
 end
 
 def questions(response)
