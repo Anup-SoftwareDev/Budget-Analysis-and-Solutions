@@ -13,27 +13,61 @@ def questions(response)
         response = (gets.chomp).capitalize
     end
     case response
-        when "Y" 
-            puts "\t\tGreat. We will first ask you a few quesitons on your income"
+        
         when "N" 
             puts "\t\tNo Worries. Don't hesitate to return if you feel differently"
             exit
+        when "Y" 
+            return "\t\tGreat. We will first ask you a few quesitons on your income"
+            #exit
     end
       
 end  
 
+def personal_Income
+    puts "We will now ask you for your Income details"
+    income_arr = []
+    puts "How much is your wages/week"
+    income_arr[0] = test_integer(gets.chomp)
+    puts "How much is your investments interest/week"
+    income_arr[1] = test_integer(gets.chomp)
+    puts "How much is your rental Income/week"
+    income_arr[2] = test_integer(gets.chomp)
+    puts "How much is your Other Income/week"
+    income_arr[3] = test_integer(gets.chomp)
+    return (income_arr.sum).to_i
+end
 
-    def budget_calculator
+def personal_expense
+    expense_arr = []
+    puts "We will now ask you for your Expense details"
+    puts "How much is your Groceries/week"
+    expense_arr[0] = test_integer(gets.chomp)
+    puts "How much is your school fees/week"
+    expense_arr[1] = test_integer(gets.chomp)
+    puts "How much is your Rent/week"
+    expense_arr[2] = test_integer(gets.chomp)
+    puts "How much is your Mortgage/week"
+    expense_arr[3] = test_integer(gets.chomp)
+    puts "How much is your Other expense/week"
+    expense_arr[4] = test_integer(gets.chomp)
+    return (expense_arr.sum).to_i 
+end
 
-        puts "How much is your personal income?"
+
+
+    def budget_calculator(income,expense)
+
+        #puts "How much is your personal income?"
         
-        income = test_integer(gets.chomp)
-       puts "How much is your personal Expense?"
+        #income = test_integer(gets.chomp)
+       #puts "How much is your personal Expense?"
        
-        expense = test_integer(gets.chomp)
-        puts "Now your budget surplus/deficit is:"
-        puts "#{income-expense}"
-
+        #expense = test_integer(gets.chomp)
+     puts "Now your budget surplus/deficit is:"
+        #puts "#{income-expense}"
+    
+   return (income-expense)
     end
 
 
