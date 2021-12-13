@@ -24,11 +24,10 @@ end
 
 
 describe "questions" do
-
     it "should only accept N" do
         expect(questions("N")).to eq("\t\tNo Worries. Don't hesitate to return if you feel differently")
      end
-    end    
+end    
 
 
 

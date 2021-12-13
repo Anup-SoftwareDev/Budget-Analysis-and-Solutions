@@ -18,54 +18,41 @@ def questions(response)
             puts "\t\tNo Worries. Don't hesitate to return if you feel differently"
             exit
         when "Y" 
-            return "\t\tGreat. We will first ask you a few quesitons on your income"
+            return "\t\tGreat. We will ask you a few quesitons and try help you."
             #exit
     end
       
 end  
 
-def personal_Income
+def personal_Income(income_arr_categories)
     puts "We will now ask you for your Income details"
+    
     income_arr = []
-    puts "How much is your wages/week"
-    income_arr[0] = test_integer(gets.chomp)
-    puts "How much is your investments interest/week"
-    income_arr[1] = test_integer(gets.chomp)
-    puts "How much is your rental Income/week"
-    income_arr[2] = test_integer(gets.chomp)
-    puts "How much is your Other Income/week"
-    income_arr[3] = test_integer(gets.chomp)
-    return (income_arr.sum).to_i
+    for index in 0..(income_arr_categories.length-1) do
+        puts "How much is your #{income_arr_categories[index]}/week?"
+        income_arr[index] = test_integer(gets.chomp)
+    end
+    return income_arr
+    #return (income_arr.sum).to_i
 end
 
-def personal_expense
-    expense_arr = []
+def personal_expense(expense_arr_categories )
     puts "We will now ask you for your Expense details"
-    puts "How much is your Groceries/week"
-    expense_arr[0] = test_integer(gets.chomp)
-    puts "How much is your school fees/week"
-    expense_arr[1] = test_integer(gets.chomp)
-    puts "How much is your Rent/week"
-    expense_arr[2] = test_integer(gets.chomp)
-    puts "How much is your Mortgage/week"
-    expense_arr[3] = test_integer(gets.chomp)
-    puts "How much is your Other expense/week"
-    expense_arr[4] = test_integer(gets.chomp)
-    return (expense_arr.sum).to_i 
+   
+    expense_arr = []
+    for index in 0..(expense_arr_categories.length-1) do
+        puts "How much is your #{expense_arr_categories[index]}/week?"
+        expense_arr[index] = test_integer(gets.chomp)
+    end
+    #return (expense_arr.sum).to_i 
+    return expense_arr
 end
 
 
 
     def budget_calculator(income,expense)
-
-        #puts "How much is your personal income?"
-        
-        #income = test_integer(gets.chomp)
-       #puts "How much is your personal Expense?"
-       
-        #expense = test_integer(gets.chomp)
-     puts "Now your budget surplus/deficit is:"
-        #puts "#{income-expense}"
+     
+        #puts "Now your budget surplus/deficit is:"
     
    return (income-expense)
     end
@@ -86,3 +73,30 @@ def test_integer(test_num)
 
 end    
 
+def budget_advice(budget_result, income_cat_arr, expense_cat_arr, income_value_arr, expense_value_arr)
+
+    if  budget_result > 0 then
+
+        puts "Your budget is looking under control, you have a budget surplus of:"
+        print "$#{budget_result}"
+        
+    else
+        puts "Your budget needs improvement, you have a budget shortage of:"
+        print "$#{budget_result}"
+    end
+
+    puts "\nDo you need any advice to improve your budget Y/N?"
+    puts questions((gets.chomp).capitalize)
+
+    #if  questions((gets.chomp).capitalize) == "Y" then
+
+        expense_value_arr[2]= expense_value_arr[2]- 0.1*expense_value_arr[2]
+
+        puts "You can improve your budget by reducing #{expense_cat_arr[2]} by 10%"
+        puts "This will result in budget surplus of #{budget_calculator(income_value_arr.sum, expense_value_arr.sum )}"
+        
+    #else
+        
+    #end
+
+end    
