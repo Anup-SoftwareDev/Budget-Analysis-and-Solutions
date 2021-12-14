@@ -6,8 +6,8 @@ personal_income_categories = ["Wages/Salary","Rental Income","Investment Income"
 personal_expense_categories = ["Groceries","School Fees", "Shopping", "Entertainment", "Rent/Mortgage","Other Expenses"]
 personal_income_priority = [0,2,1,3]
 personal_expense_priority = [3,2,0,5,4,1]
-personal_income_arr = [100,100,100,100]
-personal_expense_arr = [100,100,100,100,180,100]
+personal_income_arr = [200,100,100,100]
+personal_expense_arr = [100,100,100,500,180,300]
 personal_income_budgetarr = []
 personal_expense_budgetarr = []
 
