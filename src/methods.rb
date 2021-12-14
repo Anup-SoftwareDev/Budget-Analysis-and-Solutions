@@ -73,7 +73,8 @@ def test_integer(test_num)
 
 end    
 
-def budget_advice(budget_result, income_cat_arr, expense_cat_arr, income_value_arr, expense_value_arr, income_value_budgetarr, expense_value_budgetarr)
+def budget_advice(budget_result, income_cat_arr, expense_cat_arr, income_value_arr, expense_value_arr, income_value_budgetarr, expense_value_budgetarr, income_priority, expense_priority)
+    loop_times = 0
 
     if  budget_result > 0 then
 
@@ -88,16 +89,7 @@ def budget_advice(budget_result, income_cat_arr, expense_cat_arr, income_value_a
     puts "\nDo you need any advice to improve your budget Y/N?"
     puts questions((gets.chomp).capitalize)
 
-  #if  questions((gets.chomp).capitalize) == "Y" then
 
-       # expense_value_arr[2]= expense_value_arr[2]- 0.1*expense_value_arr[2]
-
-       # puts "You can improve your budget by reducing #{expense_cat_arr[2]} by 10%"
-       # puts "This will result in budget surplus of #{budget_calculator(income_value_arr.sum, expense_value_arr.sum )}"
-        
-    #else
-        
-    #end
         for index in 0..income_value_arr.length-1 do
             income_value_budgetarr[index] = income_value_arr[index]
             
@@ -108,62 +100,29 @@ def budget_advice(budget_result, income_cat_arr, expense_cat_arr, income_value_a
             expense_value_budgetarr[index] = expense_value_arr[index]
         end
        
+        while (income_value_budgetarr.sum < (1.2)*(expense_value_budgetarr.sum)) do
+            for x in 0..expense_priority.length-1 do
+                while (income_value_budgetarr.sum < (1.2)*(expense_value_budgetarr.sum))&&(expense_value_budgetarr[expense_priority[x]] > (0.7-loop_times)*expense_value_arr[expense_priority[x]]) do
+                    expense_value_budgetarr[expense_priority[x]] = expense_value_budgetarr[expense_priority[x]] - 0.1*expense_value_arr[expense_priority[x]]
+                    
+                end
+            end
 
-        while (income_value_budgetarr.sum < (1.2)*(expense_value_budgetarr.sum))&&(expense_value_budgetarr[3] > (0.7)*expense_value_arr[3]) do
-            expense_value_budgetarr[3] = expense_value_budgetarr[3] - 0.1*expense_value_arr[3]
-            
-        end
-        while (income_value_budgetarr.sum < (1.2)*(expense_value_budgetarr.sum))&&(expense_value_budgetarr[2] > (0.7)*expense_value_arr[2]) do
-            expense_value_budgetarr[2] = expense_value_budgetarr[2] - 0.1*expense_value_arr[2]
-            
-        end
-        while (income_value_budgetarr.sum < (1.2)*(expense_value_budgetarr.sum))&&(expense_value_budgetarr[0] > (0.7)*expense_value_arr[0]) do
-            expense_value_budgetarr[0] = expense_value_budgetarr[0] - 0.1*expense_value_arr[0]
-            
-        end
-        while (income_value_budgetarr.sum < (1.2)*(expense_value_budgetarr.sum))&&(expense_value_budgetarr[5] > (0.7)*expense_value_arr[5]) do
-            expense_value_budgetarr[5] = expense_value_budgetarr[5] - 0.1*expense_value_arr[5]   
-        end
-        while (income_value_budgetarr.sum < (1.2)*(expense_value_budgetarr.sum))&&(expense_value_budgetarr[4] > (0.7)*expense_value_arr[4]) do
-            expense_value_budgetarr[4] = expense_value_budgetarr[4] - 0.1*expense_value_arr[4]   
-        end
-        while (income_value_budgetarr.sum < (1.2)*(expense_value_budgetarr.sum))&&(expense_value_budgetarr[1] > (0.7)*expense_value_arr[1]) do
-            expense_value_budgetarr[1] = expense_value_budgetarr[1] - 0.1*expense_value_arr[1]   
+
+
+            for y in 0..income_priority.length-1 do
+                while (income_value_budgetarr.sum < (1.2)*(expense_value_budgetarr.sum))&&(income_value_budgetarr[income_priority[y]] < (1.3+loop_times)*income_value_arr[income_priority[y]]) do
+                    income_value_budgetarr[income_priority[y]] = income_value_budgetarr[income_priority[y]] + 0.1*income_value_arr[income_priority[y]]   
+                end
+            end
+            loop_times = loop_times+0.35
+
         end
 
-        while (income_value_budgetarr.sum < (1.2)*(expense_value_budgetarr.sum))&&(income_value_budgetarr[0] < (1.3)*income_value_arr[0]) do
-            income_value_budgetarr[0] = income_value_budgetarr[0] + 0.1*income_value_arr[0]   
-        end
-        while (income_value_budgetarr.sum < (1.2)*(expense_value_budgetarr.sum))&&(income_value_budgetarr[1] < (1.3)*income_value_arr[1]) do
-            income_value_budgetarr[1] = income_value_budgetarr[1] + 0.1*income_value_arr[1]   
-        end
-        while (income_value_budgetarr.sum < (1.2)*(expense_value_budgetarr.sum))&&(income_value_budgetarr[2] < (1.3)*income_value_arr[2]) do
-            income_value_budgetarr[2] = income_value_budgetarr[2] + 0.1*income_value_arr[2]   
-        end
-
-        while (income_value_budgetarr.sum < (1.2)*(expense_value_budgetarr.sum))&&(income_value_budgetarr[3] < (1.3)*income_value_arr[3]) do
-            income_value_budgetarr[3] = income_value_budgetarr[3] + 0.1*income_value_arr[3]   
-        end
+      
 
     
 
-        #puts expense_value_budgetarr[3]
-
-     #   while (income_value_budgetarr.sum < ((1.2)*(expense_value_budgetarr.sum)))||(expense_value_budgetarr[3]<(0.7)*expense_value_arr[3]) do
-      #      expense_value_budgetarr[3] = expense_value_budgetarr[3] - 0.1*expense_value_arr[3]
-       # end
-
-    #while (((expense_value_budgetarr[3])>((0.7)*expense_value_arr[3]))) do
-     #     if !((expense_value_budgetarr[3]<(0.7)*expense_value_arr[3])) then
-      #      expense_value_budgetarr[3] = expense_value_budgetarr[3] - 0.1*expense_value_arr[3]
-    #    end
-    
-    #end
-
-    #    pp income_value_arr
-    #    pp income_value_budgetarr
-    #    pp expense_value_arr
-    #    pp expense_value_budgetarr
     puts "Your budget income is #{income_value_budgetarr.sum}"
     puts "Your budget expense is #{expense_value_budgetarr.sum}"
 
