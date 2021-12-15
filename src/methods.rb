@@ -90,69 +90,18 @@ def budget_advice(budget_result, income_cat_arr, expense_cat_arr, income_value_a
         Increase_income_budget(income_value_arr, income_value_budgetarr, expense_value_arr, expense_value_budgetarr, income_priority, expense_priority)
 
     else  
-
+        #User defined section
         first_option = Userdefined_Menu1()
 
-    
+        #Expense section for user defined menu
         if first_option == 1 then
 
-        need_to_reduce_more = true
-
-         while need_to_reduce_more == true do
-        
-                expense_option = Userdefined_Menu2a(expense_cat_arr)
-
-                puts "How much do you want to reduce #{expense_cat_arr[expense_option-1]} by"
-                puts "1)5% 2)10% 3)20% Pick One"
-
-                expense_reduction_option = (gets.chomp).to_i
-                while ((expense_reduction_option < 1)||(expense_reduction_option > 3)) do
-            
-                    puts "\t\tPlease Enter numbers between 1 to 3"
-                    expense_reduction_option = (gets.chomp).to_i
-                end 
-
-                case expense_reduction_option
-                    when 1
-                        expense_value_budgetarr[expense_option-1] = expense_value_budgetarr[expense_option-1]- 0.05*(expense_value_arr[expense_option-1])
-
-                    when 2
-                        expense_value_budgetarr[expense_option-1] = expense_value_budgetarr[expense_option-1]- 0.1*(expense_value_arr[expense_option-1])
-
-                    when 3
-                        expense_value_budgetarr[expense_option-1] = expense_value_budgetarr[expense_option-1]- 0.2*(expense_value_arr[expense_option-1])
-
-                end
-                puts "Do you need to reduce more expenses Y/N"
-                reduce_more_choice = (gets.chomp).capitalize
-                while ((reduce_more_choice != "Y")&&(reduce_more_choice != "N")) do
-                    puts "\t\tPlease Enter Y/N"
-                    reduce_more_choice = (gets.chomp).capitalize
-                end
-                case reduce_more_choice
-                    
-                    when "N" 
-                        
-                        need_to_reduce_more = false
-                    
-                    when "Y" 
-                        
-                        need_to_reduce_more = true
-                end
-                puts need_to_reduce_more
-         
-        end   
-
-           
-
+            Userdefined_expense_reduction(expense_cat_arr, expense_value_budgetarr, expense_value_arr)
+    
         else
-            puts "Great! Good to get more money"
-            puts "Which of the following Income Categories do you want to try increase first. Pick One:" 
 
-            for inc_index in 0..(income_cat_arr.length-1) do
-                    puts "\n #{inc_index+1}) #{income_cat_arr[inc_index]}"
-            end
-
+            Userdefined_income_increase(income_cat_arr, income_value_budgetarr, income_value_arr)
+               
         end
     end   
 
@@ -295,4 +244,124 @@ def Userdefined_Menu2a(expense_cat_arr)
             end
             return expense_option
 
+end
+
+def Userdefined_Menu2b(income_cat_arr)
+
+    puts "Great! Good to get more money"
+    puts "Which of the following Income Categories do you want to try increase first. Pick One:" 
+
+    for inc_index in 0..(income_cat_arr.length-1) do
+            puts "\n #{inc_index+1}) #{income_cat_arr[inc_index]}"
+    end
+    
+
+    income_option = (gets.chomp).to_i
+    while ((income_option < 1)||(income_option > 4)) do
+
+        puts "\t\tPlease Enter numbers between 1 to 4"
+        income_option = (gets.chomp).to_i
+    end
+    return income_option
+
+end
+
+
+def Userdefined_expense_reduction (expense_cat_arr, expense_value_budgetarr, expense_value_arr)
+
+        need_to_reduce_more = true
+
+        while need_to_reduce_more == true do
+    
+            expense_option = Userdefined_Menu2a(expense_cat_arr)
+
+            puts "How much do you want to reduce #{expense_cat_arr[expense_option-1]} by"
+            puts "1)5% 2)10% 3)20% Pick One"
+
+            expense_reduction_option = (gets.chomp).to_i
+            while ((expense_reduction_option < 1)||(expense_reduction_option > 3)) do
+        
+                puts "\t\tPlease Enter numbers between 1 to 3"
+                expense_reduction_option = (gets.chomp).to_i
+            end 
+
+            case expense_reduction_option
+                when 1
+                    expense_value_budgetarr[expense_option-1] = expense_value_budgetarr[expense_option-1]- 0.05*(expense_value_arr[expense_option-1])
+
+                when 2
+                    expense_value_budgetarr[expense_option-1] = expense_value_budgetarr[expense_option-1]- 0.1*(expense_value_arr[expense_option-1])
+
+                when 3
+                    expense_value_budgetarr[expense_option-1] = expense_value_budgetarr[expense_option-1]- 0.2*(expense_value_arr[expense_option-1])
+
+            end
+            puts "Do you need to reduce more expenses Y/N"
+            reduce_more_choice = (gets.chomp).capitalize
+            while ((reduce_more_choice != "Y")&&(reduce_more_choice != "N")) do
+                puts "\t\tPlease Enter Y/N"
+                reduce_more_choice = (gets.chomp).capitalize
+            end
+            case reduce_more_choice
+                
+                when "N" 
+                    
+                    need_to_reduce_more = false
+                
+                when "Y" 
+                    
+                    need_to_reduce_more = true
+            end
+            puts need_to_reduce_more
+        end
+end
+
+
+def Userdefined_income_increase (income_cat_arr, income_value_budgetarr, income_value_arr)
+
+    need_to_increase_more = true
+
+    while need_to_increase_more == true do
+
+        income_option = Userdefined_Menu2b(income_cat_arr)
+
+        puts "How much do you want to increase #{income_cat_arr[income_option-1]} by"
+        puts "1)5% 2)10% 3)20% Pick One"
+
+        income_reduction_option = (gets.chomp).to_i
+        while ((income_reduction_option < 1)||(income_reduction_option > 3)) do
+    
+            puts "\t\tPlease Enter numbers between 1 to 3"
+            income_reduction_option = (gets.chomp).to_i
+        end 
+
+        case income_reduction_option
+            when 1
+                income_value_budgetarr[income_option-1] = income_value_budgetarr[income_option-1]+ 0.05*(income_value_arr[income_option-1])
+
+            when 2
+                income_value_budgetarr[income_option-1] = income_value_budgetarr[income_option-1]+ 0.10*(income_value_arr[income_option-1])
+
+            when 3
+                income_value_budgetarr[income_option-1] = income_value_budgetarr[income_option-1]+ 0.20*(income_value_arr[income_option-1])
+
+        end
+        puts "Do you need to increase more expenses Y/N"
+        increase_more_choice = (gets.chomp).capitalize
+        while ((increase_more_choice != "Y")&&(increase_more_choice != "N")) do
+            puts "\t\tPlease Enter Y/N"
+            increase_more_choice = (gets.chomp).capitalize
+        end
+        case increase_more_choice
+            
+            when "N" 
+                
+                need_to_increase_more = false
+            
+            when "Y" 
+                
+                need_to_increase_more = true
+        end
+        puts need_to_increase_more
+    end
 end
