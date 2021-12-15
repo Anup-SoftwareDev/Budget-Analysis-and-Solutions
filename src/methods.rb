@@ -89,34 +89,59 @@ def budget_advice(budget_result, income_cat_arr, expense_cat_arr, income_value_a
 
         Increase_income_budget(income_value_arr, income_value_budgetarr, expense_value_arr, expense_value_budgetarr, income_priority, expense_priority)
 
-    else 
-        puts "Great! We will help you test out different ways to improve the budget"
-        puts "Which of the following Options do you want to try out first. Pick 1 or 2: \n1)Reduce Expenses \n 2)Increase Income"
-        first_option = (gets.chomp).to_i
+    else  
 
-       while ((first_option != 1)&&(first_option != 2)) do
-           puts "\t\tPlease Enter 1/2"
-           first_option = (gets.chomp).to_i
-        end
+        first_option = Userdefined_Menu1()
+
     
         if first_option == 1 then
-            puts "Great! Reducing Expenses is a great start"
-            puts "Which of the following Expenses do you want to try reduce first. Pick One:" 
 
+        need_to_reduce_more = true
 
-            for exp_index in 0..(expense_cat_arr.length-1) do
-                    puts "\n #{exp_index+1}) #{expense_cat_arr[exp_index]}"
-            end
+         while need_to_reduce_more == true do
         
-            expense_option = (gets.chomp).to_i
-            while ((expense_option < 1)||(expense_option > 6)) do
-        
-                puts "\t\tPlease Enter numbers between 1 to 6"
-                expense_option = (gets.chomp).to_i
-            end
+                expense_option = Userdefined_Menu2a(expense_cat_arr)
 
-            puts "How much do you want to reduce #{expense_cat_arr[expense_option-1]} by"
-            puts "1)5% 2)10% 3)20%"
+                puts "How much do you want to reduce #{expense_cat_arr[expense_option-1]} by"
+                puts "1)5% 2)10% 3)20% Pick One"
+
+                expense_reduction_option = (gets.chomp).to_i
+                while ((expense_reduction_option < 1)||(expense_reduction_option > 3)) do
+            
+                    puts "\t\tPlease Enter numbers between 1 to 3"
+                    expense_reduction_option = (gets.chomp).to_i
+                end 
+
+                case expense_reduction_option
+                    when 1
+                        expense_value_budgetarr[expense_option-1] = expense_value_budgetarr[expense_option-1]- 0.05*(expense_value_arr[expense_option-1])
+
+                    when 2
+                        expense_value_budgetarr[expense_option-1] = expense_value_budgetarr[expense_option-1]- 0.1*(expense_value_arr[expense_option-1])
+
+                    when 3
+                        expense_value_budgetarr[expense_option-1] = expense_value_budgetarr[expense_option-1]- 0.2*(expense_value_arr[expense_option-1])
+
+                end
+                puts "Do you need to reduce more expenses Y/N"
+                reduce_more_choice = (gets.chomp).capitalize
+                while ((reduce_more_choice != "Y")&&(reduce_more_choice != "N")) do
+                    puts "\t\tPlease Enter Y/N"
+                    reduce_more_choice = (gets.chomp).capitalize
+                end
+                case reduce_more_choice
+                    
+                    when "N" 
+                        
+                        need_to_reduce_more = false
+                    
+                    when "Y" 
+                        
+                        need_to_reduce_more = true
+                end
+                puts need_to_reduce_more
+         
+        end   
 
            
 
@@ -236,5 +261,38 @@ def Ask_for_BudgetSolution_Option()
     end
 
     return option
+
+end
+
+def Userdefined_Menu1()
+
+    puts "Great! We will help you test out different ways to improve the budget"
+        puts "Which of the following Options do you want to try out first. Pick 1 or 2: \n1)Reduce Expenses \n 2)Increase Income"
+        first_option = (gets.chomp).to_i
+
+       while ((first_option != 1)&&(first_option != 2)) do
+           puts "\t\tPlease Enter 1/2"
+           first_option = (gets.chomp).to_i
+        end
+        return first_option
+end
+
+def Userdefined_Menu2a(expense_cat_arr)
+
+    puts "Great! Reducing Expenses is a great start"
+            puts "Which of the following Expenses do you want to try reduce first. Pick One:" 
+
+
+            for exp_index in 0..(expense_cat_arr.length-1) do
+                    puts "\n #{exp_index+1}) #{expense_cat_arr[exp_index]}"
+            end
+        
+            expense_option = (gets.chomp).to_i
+            while ((expense_option < 1)||(expense_option > 6)) do
+        
+                puts "\t\tPlease Enter numbers between 1 to 6"
+                expense_option = (gets.chomp).to_i
+            end
+            return expense_option
 
 end
