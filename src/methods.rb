@@ -8,6 +8,8 @@ def welcome_msg
 end
 
 def questions(response)
+
+
     while ((response != "Y")&&(response != "N")) do
         puts "\t\tPlease Enter Y/N"
         response = (gets.chomp).capitalize
@@ -19,7 +21,7 @@ def questions(response)
             exit
         when "Y" 
             return "\t\tGreat. We will ask you a few quesitons and try help you."
-            #exit
+           
     end
       
 end  
@@ -80,9 +82,54 @@ def budget_advice(budget_result, income_cat_arr, expense_cat_arr, income_value_a
 
     Initialize_budgetarr_to_currentarr(income_value_arr,income_value_budgetarr, expense_value_arr,expense_value_budgetarr)
 
-    Reduce_expense_budget(income_value_arr, income_value_budgetarr, expense_value_arr, expense_value_budgetarr, income_priority, expense_priority)
 
-    Increase_income_budget(income_value_arr, income_value_budgetarr, expense_value_arr, expense_value_budgetarr, income_priority, expense_priority)
+    if Ask_for_BudgetSolution_Option() == 1 then
+
+        Reduce_expense_budget(income_value_arr, income_value_budgetarr, expense_value_arr, expense_value_budgetarr, income_priority, expense_priority)
+
+        Increase_income_budget(income_value_arr, income_value_budgetarr, expense_value_arr, expense_value_budgetarr, income_priority, expense_priority)
+
+    else 
+        puts "Great! We will help you test out different ways to improve the budget"
+        puts "Which of the following Options do you want to try out first. Pick 1 or 2: \n1)Reduce Expenses \n 2)Increase Income"
+        first_option = (gets.chomp).to_i
+
+       while ((first_option != 1)&&(first_option != 2)) do
+           puts "\t\tPlease Enter 1/2"
+           first_option = (gets.chomp).to_i
+        end
+    
+        if first_option == 1 then
+            puts "Great! Reducing Expenses is a great start"
+            puts "Which of the following Expenses do you want to try reduce first. Pick One:" 
+
+
+            for exp_index in 0..(expense_cat_arr.length-1) do
+                    puts "\n #{exp_index+1}) #{expense_cat_arr[exp_index]}"
+            end
+        
+            expense_option = (gets.chomp).to_i
+            while ((expense_option < 1)||(expense_option > 6)) do
+        
+                puts "\t\tPlease Enter numbers between 1 to 6"
+                expense_option = (gets.chomp).to_i
+            end
+
+            puts "How much do you want to reduce #{expense_cat_arr[expense_option-1]} by"
+            puts "1)5% 2)10% 3)20%"
+
+           
+
+        else
+            puts "Great! Good to get more money"
+            puts "Which of the following Income Categories do you want to try increase first. Pick One:" 
+
+            for inc_index in 0..(income_cat_arr.length-1) do
+                    puts "\n #{inc_index+1}) #{income_cat_arr[inc_index]}"
+            end
+
+        end
+    end   
 
     Print_expense_budget_Report(expense_cat_arr, expense_value_arr, expense_value_budgetarr) 
 
@@ -100,9 +147,9 @@ def Anounce_budget_Result(budg_result)
         else
             puts "Your budget needs improvement, you have a budget defecit of:"
             print "$#{budg_result}"
-        end
+    end
 
-        puts "\nDo you need any advice to improve your budget Y/N?"
+        puts "\nDo you need any help to improve your budget Y/N?"
         puts questions((gets.chomp).capitalize)
 
 end
@@ -176,4 +223,18 @@ def Print_income_budget_Report(income_cat_arr, income_value_arr, income_value_bu
 
         end
     end
+end
+
+def Ask_for_BudgetSolution_Option()
+
+    puts "Pick one of the following Options: \n1)Provide you with Our recomended Budget Solution \n 2)Create your own Budget Solution"
+    option = (gets.chomp).to_i
+
+    while ((option != 1)&&(option != 2)) do
+        puts "\t\tPlease Enter 1/2"
+        option = (gets.chomp).to_i
+    end
+
+    return option
+
 end

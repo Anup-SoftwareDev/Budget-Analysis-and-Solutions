@@ -20,6 +20,7 @@ response = (gets.chomp).capitalize
 
 puts questions(response)
 
+
 #personal_income_arr = personal_Income(personal_income_categories)
 #personal_expense_arr = personal_expense(personal_expense_categories)
   
