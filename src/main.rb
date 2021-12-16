@@ -11,6 +11,9 @@ begin
     personal_expense_arr = [100,100,100,500,180,300]
     personal_income_budgetarr = []
     personal_expense_budgetarr = []
+    savings_rates = [1, 2, 3, 2, 4, 6, -1, 5, 10]
+    savings_rates_cat = ["Conservative Minimum", "Conservative Medium", "Coservative Max", "Balanced Minimum", "Balanced Medium", "Balance Max", "High Risk Minimum", "High Risk Medium", "High risk Max" ]
+    
 
 
 
@@ -24,16 +27,34 @@ begin
     puts questions(response)
 
 
-    #personal_income_arr = personal_Income(personal_income_categories)
-    #personal_expense_arr = personal_expense(personal_expense_categories)
+    personal_income_arr = personal_Income(personal_income_categories)
+    personal_expense_arr = personal_expense(personal_expense_categories)
     
     budget_advice(budget_calculator(personal_income_arr.sum , personal_expense_arr.sum), personal_income_categories, personal_expense_categories, personal_income_arr, personal_expense_arr, personal_income_budgetarr,  personal_expense_budgetarr,personal_income_priority,personal_expense_priority)
+
+    puts "Do you want us to help you with any investment advice for the Future"
+    puts "Please Enter Y/N"
+    questions(gets.chomp)
+
+    puts"How much Savings do you have all together"
+    savings = test_integer(gets.chomp)
+    puts "How many years do you want to see the savings grow"
+    years = test_integer(gets.chomp)
+    
+    for index in 0..8 do
+
+        calc = ((savings_rates[index])/100.0)
+        #puts calc
+        result = savings * (1 + calc/12) ** (12*years)
+
+        puts "Your savings for #{savings_rates_cat[index]} after #{years}years is $#{result.to_i}"
+    end
 
     rescue ZeroDivisionError
         puts "You can not divide by Zero"
     rescue 
         puts "Something unexpected has happened"
     ensure
-        puts "Wish you the best with your budget for the future!"
+       puts "Wish you the best with your budget for the future!"
 
 end

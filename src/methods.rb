@@ -9,6 +9,7 @@ end
 
 def questions(response)
 
+    response = response.capitalize
 
     while ((response != "Y")&&(response != "N")) do
         puts "\t\tPlease Enter Y/N"
