@@ -173,7 +173,7 @@ def Increase_income_budget(income_value_arr, income_value_budgetarr, expense_val
 end
 
 def Print_expense_budget_Report(expense_cat_arr, expense_value_arr, expense_value_budgetarr) 
-
+    budgetreport_file = File.new("Report.txt", "w")
     puts "Your current expense is #{expense_value_arr.sum}"
     puts "Your expense can be budgeted to #{expense_value_budgetarr.sum} by doing the following:"
 
@@ -183,12 +183,19 @@ def Print_expense_budget_Report(expense_cat_arr, expense_value_arr, expense_valu
 
             puts "By reducing your #{expense_cat_arr[index_expense]} by #{(100*(1-((expense_value_budgetarr[index_expense])/expense_value_arr[index_expense]))).to_i}% or $#{(expense_value_arr[index_expense]-expense_value_budgetarr[index_expense]).to_i}"
 
+            
+            budgetreport_file.puts("By reducing your #{expense_cat_arr[index_expense]} by #{(100*(1-((expense_value_budgetarr[index_expense])/expense_value_arr[index_expense]))).to_i}% or $#{(expense_value_arr[index_expense]-expense_value_budgetarr[index_expense]).to_i}")
+            
+
         end
     end
-
+    budgetreport_file.close
 end
 
 def Print_income_budget_Report(income_cat_arr, income_value_arr, income_value_budgetarr)
+
+    budgetreport_file = File.open("Report.txt", "a")
+
     puts "Your current income is #{income_value_arr.sum}"
     puts "Your income would have to be increased to #{income_value_budgetarr.sum} by doing the following:"
 
@@ -198,8 +205,11 @@ def Print_income_budget_Report(income_cat_arr, income_value_arr, income_value_bu
 
             puts "By increasing your #{income_cat_arr[index_income]} by #{(100*(((income_value_budgetarr[index_income])/income_value_arr[index_income])-1)).to_i}% or $#{(income_value_budgetarr[index_income]-income_value_arr[index_income]).to_i}"
 
+            budgetreport_file.puts("By increasing your #{income_cat_arr[index_income]} by #{(100*(((income_value_budgetarr[index_income])/income_value_arr[index_income])-1)).to_i}% or $#{(income_value_budgetarr[index_income]-income_value_arr[index_income]).to_i}")
+
         end
     end
+    budgetreport_file.close
 end
 
 def Ask_for_BudgetSolution_Option()

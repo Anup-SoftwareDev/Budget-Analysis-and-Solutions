@@ -16,7 +16,6 @@ begin
 
     welcome_msg
 
-    raise Error
 
     print "\t\tIs it OK if we ask you a few Questions(Y/N)?\n\n".blue
 
@@ -25,8 +24,8 @@ begin
     puts questions(response)
 
 
-    personal_income_arr = personal_Income(personal_income_categories)
-    personal_expense_arr = personal_expense(personal_expense_categories)
+    #personal_income_arr = personal_Income(personal_income_categories)
+    #personal_expense_arr = personal_expense(personal_expense_categories)
     
     budget_advice(budget_calculator(personal_income_arr.sum , personal_expense_arr.sum), personal_income_categories, personal_expense_categories, personal_income_arr, personal_expense_arr, personal_income_budgetarr,  personal_expense_budgetarr,personal_income_priority,personal_expense_priority)
 
