@@ -62,6 +62,8 @@ end
 
 def test_integer(test_num)
 
+    
+
     num_cond = Integer(test_num) rescue false
     if num_cond
         return test_num.to_i
@@ -72,6 +74,7 @@ def test_integer(test_num)
         end
         return num_cond.to_i
     end
+ 
 
 end    
 
