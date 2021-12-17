@@ -1,10 +1,10 @@
-By reducing your Groceries by 40% or $40
-By reducing your School Fees by 40% or $40
-By reducing your Shopping by 40% or $40
-By reducing your Entertainment by 40% or $200
-By reducing your Rent/Mortgage by 40% or $72
-By reducing your Other Expenses by 40% or $120
-By increasing your Wages/Salary by 100% or $200
-By increasing your Rental Income by 70% or $70
-By increasing your Investment Income by 89% or $90
-By increasing your Other Income by 70% or $70
+By reducing your Groceries by 49% or $16
+By reducing your School Fees by 49% or $1
+By reducing your Shopping by 49% or $216
+By reducing your Entertainment by 49% or $1
+By reducing your Rent/Mortgage by 49% or $21
+By reducing your Other Expenses by 49% or $21
+By increasing your Wages/Salary by 170% or $57
+By increasing your Rental Income by 140% or $47
+By increasing your Investment Income by 140% or $47
+By increasing your Other Income by 140% or $47
