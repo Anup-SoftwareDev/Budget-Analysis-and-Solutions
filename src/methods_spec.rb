@@ -24,11 +24,6 @@ describe "test_integer" do
 
 end
 
-  # describe "questions" do 
-  #     it "should only accept Y" do
-  #          expect(questions("Y")).to eq("\t\tGreat. We will first ask you a few quesitons on your income")
-  #      end  
-  # end
   describe "budget_calculator" do
 
     it "should convert string numbers to integers" do

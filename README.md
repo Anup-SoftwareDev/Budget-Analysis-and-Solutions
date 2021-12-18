@@ -75,7 +75,11 @@ This is the feature of the code where the user's current budget Result is displa
 
 ![BudgetResult](BudgetCalc.jpeg)
 
-Error handling here is taken care of at the inputs by ensuring that only necessary integers are allowed to be entered by the user.
+**Error handling** here is taken care of at the inputs by ensuring that only necessary integers are allowed to be entered by the user. A flow chart on how this is taken care of is shown below:
+
+![Error_handling1](Error_handling1.jpeg)
+
+As shown above if the user input is not an integer then Integer(User input) will cause an error. This will let Num be False and as a result through a rescue block the User is prompted to enter an integer. This will repeat until the user enters an actual integer
 
 ### B. User Driven Budget Solution
 
@@ -86,14 +90,21 @@ The user-driven budget solution as shown in the flow diagram below allows the us
 3. 20%
 
 Then the user has the choice to implement the same operation on another income or expense category. The user is allowed to do this until he/she chooses to stop. Once this is chosen then the process moves the the next feature. 
-
-Error-handling is taken care of at all inputs to make sure that the user only enther integers where necessary and either a "Y" or "N" where necessary.
-
 ![UserDriven](Customised.jpeg)
+
+**Error-handling** is taken care of at all inputs to make sure that the user only either integers where necessary and either a "Y" or "N" where necessary. Integer inputs are ensured the same way as shown in the flow diagram under Budget Result. The "Y" and "N" inputs are ensured using the flow diagram below:
+
+![Error_Handling2](Error_Handling2.jpeg)
+
+As shown in the figure above the flow diagram remains in a loop and keeps requesing for the user to enter "Y" or "N" until the user enters the required inputs.
 
 ### C. Application(Recommended) Budget Solution
 
-This Budget solution is created by and an algorithm program written in the application. The flow diagram for the algorithm is shown in the image below. The Main features of the algorithm are the following:
+This Budget solution is created by and an algorithm program written in the application. The flow diagram for the algorithm is shown in the image below. 
+
+![Recomended Solution](Recomended.jpeg)
+
+The Main features of the algorithm are the following:
 
 * Expenses are given priority to reduce before Increasing Income.
 * Within Expenses the priority order for reduction is the following:
@@ -117,10 +128,8 @@ This information is stored in an arra called Expense_Priority_arr.
 * It is also checked if each category has been reduced more than 40%/increased more thatn 30% because values beyond that are deemed to be unreasonable.
 * Once the above two conditions are achieved the budget solution is reached based on what has been done so far.
     
+**Error-handling** is taken care of at all inputs to make sure that the user only either integers where necessary and either a "Y" or "N" where necessary. This is the same as the flow diagrams shown earlier.
 
-
-
-![Recomended Solution](Recomended.jpeg)
 ### D. Investment Solution
 
 This feature is demonstrated in the picture below:
@@ -128,6 +137,14 @@ This feature is demonstrated in the picture below:
 
 As shown the user inputs his/her investment amount and and then number of years the user plans to invest it. The different rates at which the investment grows are stored in a file and read from it. The result is output using a Compound interes formula.
 
+**Error-handling** is taken care of at all inputs to make sure that the user only enters integers where necessary 
+To take care of more Errors in the application that are unexpected the following code has been inserted:
+
+![Error handling3](Error_Handling3.jpeg)
+
+As it can be noticed "ZeroDivisionError" is being taken care of by the first resuce block. A more user friendly message ("You can not divide by Zero") is put out when this happens.
+
+For all the other unexpected stadard Errors the rescue section with no arguements is put out and the message  used is "Something unexpected has happened". Hence in the event of errors more user friendly messages is put out.
 
 ## QUESTION R7 - USER INTERACTION AND EXPERIENCE
 
@@ -200,7 +217,18 @@ Details within each block are expanded in the answers to Question R6 Above.
 
 ## QUESTION R9 - PROJECT IMPLEMENTATION PLAN
 Project Plan is managed with Trello sofware and the link to the plan is https://trello.com/b/ZmrwGmDO/budget-investment-solutions.
+
+The final status is of the plan is as shown in the figure below:
+
 ![Project plan](Project_Plan.jpeg)
+
+As it can be observed the following activities are still in Design and implementation stage:
+* Reading Investment Rates from a file
+* Advanced Investment Solutions
+* Adding more Ruby Gems
+
+The rest have been completed to satisfaction.
+
 
 ## QUESTION R10 - APPLICATON HELP DOCUMENTATION
 

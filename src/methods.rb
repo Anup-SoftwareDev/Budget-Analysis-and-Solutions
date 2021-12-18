@@ -29,25 +29,31 @@ end
 
 def personal_Income(income_arr_categories)
     puts "We will now ask you for your Income details"
-    
+    income_file = File.open("Report.txt", "w")
+income_file.puts "ENTERED INCOMES:\n"
     income_arr = []
     for index in 0..(income_arr_categories.length-1) do
         puts "How much is your #{income_arr_categories[index]}/week?"
+    
         income_arr[index] = test_integer(gets.chomp)
+        income_file. puts"#{income_arr_categories[index]}=#{income_arr[index]}"
     end
+    income_file.close
     return income_arr
     #return (income_arr.sum).to_i
 end
 
 def personal_expense(expense_arr_categories )
     puts "We will now ask you for your Expense details"
-   
+    expense_file = File.open("Report.txt", "a")
+    expense_file.puts "ENTERED EXPENSES:\n"
     expense_arr = []
     for index in 0..(expense_arr_categories.length-1) do
         puts "How much is your #{expense_arr_categories[index]}/week?"
         expense_arr[index] = test_integer(gets.chomp)
+        expense_file. puts"#{expense_arr_categories[index]}=#{expense_arr[index]}"
     end
-    #return (expense_arr.sum).to_i 
+    expense_file.close
     return expense_arr
 end
 
@@ -174,7 +180,7 @@ def Increase_income_budget(income_value_arr, income_value_budgetarr, expense_val
 end
 
 def Print_expense_budget_Report(expense_cat_arr, expense_value_arr, expense_value_budgetarr) 
-    budgetreport_file = File.new("Report.txt", "w")
+    budgetreport_file = File.open("Report.txt", "a")
     puts "Your current expense is #{expense_value_arr.sum}"
     puts "Your expense can be budgeted to #{expense_value_budgetarr.sum} by doing the following:"
 

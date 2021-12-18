@@ -1,2 +1,36 @@
-By reducing your Shopping by 19% or $462
-By reducing your Rent/Mortgage by 9% or $0
+ENTERED INCOMES:
+Wages/Salary=1234
+Rental Income=122
+Investment Income=122
+Other Income=122
+ENTERED EXPENSES:
+Groceries=1234
+School Fees=1234
+Shopping=1223
+Entertainment=32
+Rent/Mortgage=233
+Other Expenses=233
+By reducing your Groceries by 40% or $493
+By reducing your School Fees by 40% or $493
+By reducing your Shopping by 49% or $611
+By reducing your Entertainment by 49% or $15
+By reducing your Rent/Mortgage by 40% or $93
+By reducing your Other Expenses by 40% or $93
+By increasing your Wages/Salary by 90% or $1110
+By increasing your Rental Income by 69% or $85
+By increasing your Investment Income by 69% or $85
+By increasing your Other Income by 69% or $85
+
+INVESTMENT SOLUTIONS
+ Investmetn Income = 100000
+
+Years to Invest = 10
+Your savings for Conservative Minimum after 10years is $110512
+Your savings for Conservative Medium after 10years is $122119
+Your savings for Coservative Max after 10years is $134935
+Your savings for Balanced Minimum after 10years is $122119
+Your savings for Balanced Medium after 10years is $149083
+Your savings for Balance Max after 10years is $181939
+Your savings for High Risk Minimum after 10years is $90479
+Your savings for High Risk Medium after 10years is $164700
+Your savings for High risk Max after 10years is $270704
