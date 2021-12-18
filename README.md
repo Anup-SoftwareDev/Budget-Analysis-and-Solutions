@@ -1,5 +1,9 @@
 # BUDGET & FINANCIAL SOLUTIONS APP
 
+## QUESTION R3
+GitHub Link to Sourc Control Repository:
+https://github.com/Anup-SoftwareDev/Budget-Solutions
+
 ## QUESTION R5 - PURPOSE AND SCOPE
 
 ### What it does?
@@ -64,7 +68,95 @@ The user have to go throgh the following steps:
 15. Then enter number of years to invest.
 17. Final report "Report.txt" is output.
 
+## QUESTION R6 - APPLICATION FEATURES
+
+### A. Budget Result
+This is the feature of the code where the user's current budget Result is displayed after entering all his/her current income and expense details.
+
+![BudgetResult](BudgetCalc.jpeg)
+
+
+### B. User Driven Budget Solution
+![UserDriven](Customised.jpeg)
+
+### C. Application(Recommended) Budget Solution
+![Recomended Solution](Recomended.jpeg)
+### D. Investment Solution
+![Investment](Investment.jpeg)
+### E. Other Features
+
+## QUESTION R7 - USER INTERACTION AND EXPERIENCE
+
+1. Download all "Budget_Solutions" files into your local drive.
+2. After downloading "Budget_Solutions" files into the user's personal drive user will have to  Type "./runner.sh" in the user's Command prompt and it will Launch the application as shown below:
+![Menu1](Menu1.jpeg)
+This gives the user a welcome message and asks the user if the user needs a solution for his/her budget.
+3. Type "Y" to start Budget Solutions which will give the following result to allow the user to enter values for expense and income categories mentioned in Question R5:
+![Menu2](Menu2.jpeg)
+4. **Error handling** is dealt with here. As shown in the image below, if the user Enters a non-integer value the application will keep insisting that the user enters Integer values. As it can be notice the menu only moves to the next category once an integer is put in:
+
+    ![Menu3](Menu3.jpeg)
+
+5. Budget Result is displayed and the next question requesting for budget solution is displayed, as shown below:
+
+    ![Menu4](Menu4.jpeg)
+
+5. Once Budget Result is displayed, Type "Y" if budget solution is required and "N" if user wants to exit application.
+7. If "Y" is selected then type either one of the following:
+    * 1 - The Application's Recommended budget Solution or
+    * 2 - To Creat your own Budget Solution
+8. If "1" is typed the Recommended solution is displayed.
+9. If "2" is typed then selecg either one of the following:
+    * 1 - Reduce Expenses
+    * 2 - Increase Income
+10. Selecting "1" will display categories shown in Step 5 while selecting "2" will display categories shown in Step 4.
+11. Select any of the categories from Step 10 and then type one of the following to either Reduce an Expense/Increase an Income by the shown amount:
+    * 1 - 5%
+    * 2 - 10%
+    * 3 - 20%
+12. Then select "Y" to continue increasin income/decreasong or "N" to move to next Menu.
+13. After "N" selected then either:
+    * Select "Y" for investment Advice
+    * Select "N" for exit.
+14. If "Y" is selected Enter user's inteneded Investment Income.
+15. Then enter number of years to invest.
+17. Final report "Report.txt" is output.
 
 
 
- are always struggling to keep track of their budget. The really need a cost effective solution to know how to manage their money.
+
+## QUESTION R8 - CONTROL FLOW OF APPLICAITON
+
+![Main Flow Diagram](Flow_diagram_main.jpeg)
+
+Details within each block are expanded in the answers to Question R6 Above.
+
+
+## QUESTION R9 - PROJECT IMPLEMENTATION PLAN
+Project Plan is managed with Trello sofware and the link to the plan is https://trello.com/b/ZmrwGmDO/budget-investment-solutions.
+![Project plan](Project_Plan.jpeg)
+
+## QUESTION R10 - APPLICATON HELP DOCUMENTATION
+
+### **A. Steps to Install and Run:**
+1. Download all "Budget_Solutions" files into your local drive.
+
+2. Type "./runner.sh" in your Command prompt.
+
+### **B. Application Dependencies:**
+
+1. Ruby Version - ruby 3.0.2p107 (2021-07-07 revision 0db68f0233) [arm64-darwin20]
+2. Ruby gem "colorize", "~> 0.8.1"
+3. Ruby gem "rainbow", "~> 3.0"
+4. Ruby gem "rspec", "~> 3.10"
+
+### **C. System/Hardware Requirements:**
+
+1. Operating System:  macOS BigSur Version 11.6
+2. Hardware: MacBook Air(M1, 2020)
+3. Chip: M1
+4. Memory: 8GB
+
+
+
+ 
