@@ -101,26 +101,46 @@ This gives the user a welcome message and asks the user if the user needs a solu
 
     ![Menu4](Menu4.jpeg)
 
-5. Once Budget Result is displayed, Type "Y" if budget solution is required and "N" if user wants to exit application.
-7. If "Y" is selected then type either one of the following:
-    * 1 - The Application's Recommended budget Solution or
-    * 2 - To Creat your own Budget Solution
-8. If "1" is typed the Recommended solution is displayed.
-9. If "2" is typed then selecg either one of the following:
-    * 1 - Reduce Expenses
-    * 2 - Increase Income
-10. Selecting "1" will display categories shown in Step 5 while selecting "2" will display categories shown in Step 4.
-11. Select any of the categories from Step 10 and then type one of the following to either Reduce an Expense/Increase an Income by the shown amount:
+6. **Error handling** is dealt with here again. As shown in the image below, if the user Enters a value other than "Y" or "N" the application will keep insisting that the user enters the correct values. As it can be noticed the menu only moves to the next menu if the user enters the correct inputs as shown below:
+
+    ![Menu5](Menu5.jpeg)
+
+7. If "1" is typed the Recommended solution is displayed as shown below and the next Menu is on investment is dealt with:
+    ![Menu6](Menu6.jpeg)
+
+**Error handling** is dealt with here again as in step 4.
+8. If "2" is typed then the following is displayed:
+    ![Menu8](Menu8.jpeg)
+  
+9. Selecting "1" or "2" will display the either the full Income or Expense category list as shown below:
+    ![Menu9](Menu9.jpeg)
+
+    **Error handling** is dealt with here again as in step 4.
+     
+
+10. Select any of the categories from Step 10 and then type one of the following to either Reduce an Expense/Increase an Income by the shown amount:
     * 1 - 5%
     * 2 - 10%
     * 3 - 20%
-12. Then select "Y" to continue increasin income/decreasong or "N" to move to next Menu.
-13. After "N" selected then either:
+This is shown below:
+![Menu10](Menu10.jpeg)
+
+**Error handling** is dealt with here again as in step 4.
+11. Once one of the numbers is selected above then select "Y" to continue increasing income/decreasing or "N" to move to next Menu as shown below: 
+    ![Menu11](Menu11.jpeg)
+As shown above the final budget solution is displayed and user is prompeted for budget solutions.
+
+**Error handling** is dealt with here again as in step 6.
+12. After "N" selected then either:
     * Select "Y" for investment Advice
     * Select "N" for exit.
-14. If "Y" is selected Enter user's inteneded Investment Income.
-15. Then enter number of years to invest.
-17. Final report "Report.txt" is output.
+**Error handling** is dealt with here again as in step 6.
+13. Once "Y" is selected the user has to enter the investment amount and the number of years as shown below. It then prints it out in Report.txt and the comand prompt as shown below:
+
+![Menu7](Menu7.jpeg)
+
+**Error handling** is dealt with here again as in steps 4 and 6. 
+
 
 
 
