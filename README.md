@@ -71,19 +71,63 @@ The user have to go throgh the following steps:
 ## QUESTION R6 - APPLICATION FEATURES
 
 ### A. Budget Result
-This is the feature of the code where the user's current budget Result is displayed after entering all his/her current income and expense details.
+This is the feature of the code where the user's current budget Result is displayed after entering all his/her current income and expense details. As shown in the image below the user enters various inputs for the different categories of Incomes and Expenses through the command prompt. These values are saved into two separate arrays that hold income and expense details. Then the difference in sum of the elements in each of the arrays are displayed both in the command prompt and Report.txt.
 
 ![BudgetResult](BudgetCalc.jpeg)
 
+Error handling here is taken care of at the inputs by ensuring that only necessary integers are allowed to be entered by the user.
 
 ### B. User Driven Budget Solution
+
+The user-driven budget solution as shown in the flow diagram below allows the user to choose either the Increase Income solution/or the Reduce Expense solution. Once this is chosen then the user is prompted to choose the specific category (wages, rent and so on). Once the category is chosen then the user can either increase(for income) or decrease(for Expense) the value by one of the following:
+
+1. 5%
+2. 10%
+3. 20%
+
+Then the user has the choice to implement the same operation on another income or expense category. The user is allowed to do this until he/she chooses to stop. Once this is chosen then the process moves the the next feature. 
+
+Error-handling is taken care of at all inputs to make sure that the user only enther integers where necessary and either a "Y" or "N" where necessary.
+
 ![UserDriven](Customised.jpeg)
 
 ### C. Application(Recommended) Budget Solution
+
+This Budget solution is created by and an algorithm program written in the application. The flow diagram for the algorithm is shown in the image below. The Main features of the algorithm are the following:
+
+* Expenses are given priority to reduce before Increasing Income.
+* Within Expenses the priority order for reduction is the following:
+    * Entertainment 
+    * Shopping
+    * Groceries
+    * Other Expenses
+    * Rent
+    * School Fees
+    
+This information is stored in an arra called Expense_Priority_arr.
+* Within income the priority order for increase is the following:
+    * Wages 
+    * Investment Income
+    * Rental Income
+    * Other Income
+
+    This information is stored in an array called Income_Priority_arr.
+
+* After every increase and reduction of each category it is checked if the new budgeted income is 20% greater than the budgeted expense.
+* It is also checked if each category has been reduced more than 40%/increased more thatn 30% because values beyond that are deemed to be unreasonable.
+* Once the above two conditions are achieved the budget solution is reached based on what has been done so far.
+    
+
+
+
 ![Recomended Solution](Recomended.jpeg)
 ### D. Investment Solution
+
+This feature is demonstrated in the picture below:
 ![Investment](Investment.jpeg)
-### E. Other Features
+
+As shown the user inputs his/her investment amount and and then number of years the user plans to invest it. The different rates at which the investment grows are stored in a file and read from it. The result is output using a Compound interes formula.
+
 
 ## QUESTION R7 - USER INTERACTION AND EXPERIENCE
 
@@ -109,6 +153,7 @@ This gives the user a welcome message and asks the user if the user needs a solu
     ![Menu6](Menu6.jpeg)
 
 **Error handling** is dealt with here again as in step 4.
+
 8. If "2" is typed then the following is displayed:
     ![Menu8](Menu8.jpeg)
   
@@ -126,22 +171,23 @@ This is shown below:
 ![Menu10](Menu10.jpeg)
 
 **Error handling** is dealt with here again as in step 4.
+
 11. Once one of the numbers is selected above then select "Y" to continue increasing income/decreasing or "N" to move to next Menu as shown below: 
     ![Menu11](Menu11.jpeg)
 As shown above the final budget solution is displayed and user is prompeted for budget solutions.
 
 **Error handling** is dealt with here again as in step 6.
+
 12. After "N" selected then either:
     * Select "Y" for investment Advice
     * Select "N" for exit.
 **Error handling** is dealt with here again as in step 6.
+
 13. Once "Y" is selected the user has to enter the investment amount and the number of years as shown below. It then prints it out in Report.txt and the comand prompt as shown below:
 
 ![Menu7](Menu7.jpeg)
 
 **Error handling** is dealt with here again as in steps 4 and 6. 
-
-
 
 
 
